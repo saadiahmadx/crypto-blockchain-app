@@ -23,7 +23,7 @@ const Input = ({ placeholder, name , type, value, handleChange }) => (
 )
 
 const Welcome = () => { 
-  const { currentAccount, connectWallet, formData, sendTransaction, handleChange } = useContext(TransactionContext)
+  const { currentAccount, connectWallet, formData, sendTransaction, handleChange, isLoading } = useContext(TransactionContext)
   const handleSubmit = (e) => {
     //destructures the values to set to current form data 
     const {addressTo, amount, keyword, message} = formData
@@ -56,13 +56,22 @@ const Welcome = () => {
             about placeholder text lol.
           </p>
           {/*console.log(currentAccount)*/}
-          {!currentAccount && (
+          {!currentAccount ? (
             <button type="button" onClick={connectWallet} 
             className ='flex flex-row justify-center 
-            items-center my-5 bg-[#2952e3] rounded-full 
+            items-center my-5 py-2 bg-[#2952e3] rounded-full 
             cursor-pointer hover:bg-[#2546bd]' >
               <p className="text-white text-base font-semibold">
                 Connect Wallet
+              </p>
+            </button>
+          ) : (
+            <button type="button" onClick={connectWallet} 
+            className ='flex flex-row justify-center 
+            items-center my-5 py-2 bg-[#42BC32] rounded-full 
+            ' >
+              <p className="text-white text-base font-semibold">
+                Connected
               </p>
             </button>
           )}
@@ -109,7 +118,8 @@ const Welcome = () => {
               {/* shows connected eth address on card */}
               <div>
                 <p className="text-white font-light text-sm">
-                  Address
+                  {/* shortens address */}
+                  {`${currentAccount.slice(0,5)}...${currentAccount.slice(currentAccount.length - 4)}`}
                 </p>
                 <p className="text-white font-semibold text-lg mt-1">
                   Ethereum
@@ -132,7 +142,7 @@ const Welcome = () => {
 
             <div className="h-[1px] w-full bg-gray-400 my-2"/>
             {/* loading section if loading needed, submit detected */}
-            {false ? (
+            {isLoading ? (
               <Loader />
             ) : (
               <button type="button" onClick={handleSubmit} 

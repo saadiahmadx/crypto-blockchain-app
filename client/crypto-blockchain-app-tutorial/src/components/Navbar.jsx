@@ -26,7 +26,7 @@ const Navbar = () => {
         <img src={logo} alt="logo"  className='w-32 
         cursor-pointer' />
       </div>
-      <ul className='text-white md: flex hidden 
+      <ul className='text-white md:flex hidden 
       list-none flex-row justify-between items-center 
       flex-initial'>
         {/* make an array of navbar names in array to make into */}
