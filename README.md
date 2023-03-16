@@ -1,6 +1,5 @@
 # crypto-blockchain-app-tutorial
 
-Tutorial project based on javascript mastery course: https://www.youtube.com/watch?v=Wn_Kb3MR_cU
 
 completed all stuff
 exceptions:
