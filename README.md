@@ -1,4 +1,4 @@
-# crypto-blockchain-app-tutorial
+# crypto-blockchain-app
 
 
 completed all stuff
